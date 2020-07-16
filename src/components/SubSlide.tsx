@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 
 import Button from "./Button";
+import { BORDER_RADIUS } from "./Onboarding";
 
 interface SubSlideProps {
   subTitle: string;
@@ -31,6 +32,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 18,
     paddingTop: 0,
+    backgroundColor: "white",
+    borderTopLeftRadius: BORDER_RADIUS,
   },
   subTitle: {
     fontFamily: "SFProText-Semibold",

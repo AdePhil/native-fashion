@@ -11,9 +11,7 @@ import Dot from "./Dot";
 const BORDER_RADIUS = 75;
 
 const Onboarding = () => {
-  // const x = useValue(0);
   const { scrollHandler, x } = useScrollHandler();
-  // const onScroll = onScrollEvent({ x });
   const slides = [
     {
       id: 1,
@@ -22,6 +20,7 @@ const Onboarding = () => {
       subTitle: "Find Your OutFits",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo ",
+      picture: require("../../assets/2.png"),
     },
     {
       id: 2,
@@ -30,6 +29,7 @@ const Onboarding = () => {
       subTitle: "Hear it First, Wear it First",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo",
+      picture: require("../../assets/3.png"),
     },
     {
       id: 3,
@@ -38,6 +38,7 @@ const Onboarding = () => {
       subTitle: "Your style, Your Way",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo",
+      picture: require("../../assets/1.png"),
     },
     {
       id: 4,
@@ -46,6 +47,7 @@ const Onboarding = () => {
       subTitle: "Look Good, Feel Good",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo",
+      picture: require("../../assets/4.png"),
     },
   ];
 
@@ -69,12 +71,19 @@ const Onboarding = () => {
           bounces={false}
           scrollEventThrottle={1}
         >
-          {slides.map(({ title, id }, i) => (
-            <Slide title={title} right={!!(i % 2)} key={id} />
+          {slides.map(({ title, id, picture }, i) => (
+            <Slide title={title} right={!!(i % 2)} key={id} picture={picture} />
           ))}
         </Animated.ScrollView>
       </Animated.View>
       <View style={[styles.footer]}>
+        <Animated.View
+          style={{
+            ...StyleSheet.absoluteFillObject,
+            backgroundColor,
+          }}
+        />
+
         <View
           style={[
             {
@@ -87,9 +96,6 @@ const Onboarding = () => {
             <Dot key={id} index={i} currentIndex={divide(x, width)} />
           ))}
         </View>
-        <Animated.View
-          style={{ ...StyleSheet.absoluteFillObject, backgroundColor }}
-        />
 
         <Animated.View
           style={[
@@ -132,14 +138,14 @@ const styles = StyleSheet.create({
   },
   overlay: {
     flex: 1,
-    backgroundColor: "white",
-    borderTopLeftRadius: BORDER_RADIUS,
+    backgroundColor: "transparent",
     flexDirection: "row",
   },
   footer: {
     flex: 1,
   },
   indicatorContainer: {
+    left: 50,
     height: 80,
     zIndex: 3,
     flexDirection: "row",
