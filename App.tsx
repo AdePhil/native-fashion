@@ -1,6 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { ThemeProvider } from "@shopify/restyle";
 
+import theme from "./src/theme";
 import Onboarding from "./src/components/Onboarding";
 import LoadAssets from "./src/components/LoadAssets";
 
@@ -21,7 +23,9 @@ const AuthenticationNavigator = () => {
 export default function App() {
   return (
     <LoadAssets {...{ fonts }}>
-      <AuthenticationNavigator />
+      <ThemeProvider theme={theme}>
+        <AuthenticationNavigator />
+      </ThemeProvider>
     </LoadAssets>
   );
 }

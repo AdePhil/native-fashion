@@ -1,5 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Text, Dimensions, Image } from "react-native";
+import { View, StyleSheet, Dimensions, Image } from "react-native";
+
+import { Text } from "../theme";
 
 const { width, height } = Dimensions.get("window");
 interface SlideProps {
@@ -26,7 +28,7 @@ const Slider = ({ title, right, picture }: SlideProps) => {
         <Image source={picture} style={styles.picture} />
       </View>
       <View style={[styles.titleContainer, { transform }]}>
-        <Text style={styles.title}>{title}</Text>
+        <Text variant="hero">{title}</Text>
       </View>
     </View>
   );
@@ -40,20 +42,8 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: "center",
   },
-  title: {
-    fontSize: 80,
-    lineHeight: 80,
-    fontFamily: "SFProText-Bold",
-    color: "white",
-    textAlign: "center",
-  },
-  underLay: {
-    // justifyContent: "flex-end",
-  },
-  picture: {
-    // width: width * 0.5,
-    // height: height * 0.5,
-  },
+  underLay: {},
+  picture: {},
 });
 
 export default Slider;

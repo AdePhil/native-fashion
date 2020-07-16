@@ -1,8 +1,9 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
+
+import { Text } from "../theme";
 
 import Button from "./Button";
-import { BORDER_RADIUS } from "./Onboarding";
 
 interface SubSlideProps {
   subTitle: string;
@@ -14,8 +15,10 @@ interface SubSlideProps {
 const SubSlide = ({ subTitle, description, last, onPress }: SubSlideProps) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.subTitle}>{subTitle}</Text>
-      <Text style={styles.description}>{description}</Text>
+      <Text variant="title2">{subTitle}</Text>
+      <Text variant="body" style={styles.description}>
+        {description}
+      </Text>
       <Button
         label={last ? "Let's get started" : "Next"}
         variant={last ? "primary" : "default"}
@@ -32,18 +35,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 18,
     paddingTop: 0,
-    backgroundColor: "white",
-    borderTopLeftRadius: BORDER_RADIUS,
-  },
-  subTitle: {
-    fontFamily: "SFProText-Semibold",
-    fontSize: 24,
-    color: "#0c0d34",
   },
   description: {
-    fontSize: 16,
-    fontFamily: "SFProText-Regular",
-    lineHeight: 24,
     textAlign: "center",
     marginVertical: 15,
   },

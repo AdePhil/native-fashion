@@ -97,30 +97,41 @@ const Onboarding = () => {
           ))}
         </View>
 
-        <Animated.View
-          style={[
-            styles.overlay,
-            {
-              width: width * slides.length,
-              transform: [{ translateX: multiply(x, -1) }],
-            },
-          ]}
+        <View
+          style={{
+            flex: 1,
+            width: width,
+            flexDirection: "row",
+            borderTopLeftRadius: BORDER_RADIUS,
+            backgroundColor: "white",
+            overflow: "hidden",
+          }}
         >
-          {slides.map(({ subTitle, description, id }, i) => (
-            <SubSlide
-              key={id}
-              last={i === slides.length - 1}
-              {...{ subTitle, description }}
-              onPress={() => {
-                if (scrollRef.current) {
-                  scrollRef.current
-                    .getNode()
-                    .scrollTo({ x: width * (i + 1), animated: true });
-                }
-              }}
-            />
-          ))}
-        </Animated.View>
+          <Animated.View
+            style={[
+              styles.overlay,
+              {
+                width: width * slides.length,
+                transform: [{ translateX: multiply(x, -1) }],
+              },
+            ]}
+          >
+            {slides.map(({ subTitle, description, id }, i) => (
+              <SubSlide
+                key={id}
+                last={i === slides.length - 1}
+                {...{ subTitle, description }}
+                onPress={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current
+                      .getNode()
+                      .scrollTo({ x: width * (i + 1), animated: true });
+                  }
+                }}
+              />
+            ))}
+          </Animated.View>
+        </View>
       </View>
     </View>
   );
@@ -137,7 +148,6 @@ const styles = StyleSheet.create({
     backgroundColor: "cyan",
   },
   overlay: {
-    flex: 1,
     backgroundColor: "transparent",
     flexDirection: "row",
   },
