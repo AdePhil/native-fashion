@@ -8,7 +8,7 @@ const { width } = Dimensions.get("window");
 import Slide, { SLIDE_HEIGHT } from "./Slide";
 import SubSlide from "./SubSlide";
 import Dot from "./Dot";
-const BORDER_RADIUS = 75;
+export const BORDER_RADIUS = 75;
 
 const Onboarding = () => {
   const { scrollHandler, x } = useScrollHandler();
