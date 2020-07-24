@@ -1,14 +1,20 @@
-import { createText, BaseTheme } from "@shopify/restyle";
+import { createText, createBox } from "@shopify/restyle";
 
 import colors from "./colors";
 
-const theme: BaseTheme = {
+const theme = {
   colors: colors,
   spacing: {
     s: 8,
     m: 16,
     l: 24,
     xl: 40,
+  },
+  borderRadii: {
+    s: 4,
+    m: 10,
+    l: 25,
+    xl: 75,
   },
   breakpoints: {},
   textVariants: {
@@ -42,4 +48,5 @@ const theme: BaseTheme = {
 
 export type Theme = typeof theme;
 export const Text = createText<Theme>();
+export const Box = createBox<Theme>();
 export default theme;

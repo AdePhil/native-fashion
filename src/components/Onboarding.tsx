@@ -5,12 +5,17 @@ import Animated, { multiply, divide } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
+import theme from "../theme";
+
 import Slide, { SLIDE_HEIGHT } from "./Slide";
 import SubSlide from "./SubSlide";
 import Dot from "./Dot";
-export const BORDER_RADIUS = 75;
+import { StackNavigationProps, Routes } from "./AppRoutes";
+// export const BORDER_RADIUS = 75;
 
-const Onboarding = () => {
+const Onboarding = ({
+  navigation,
+}: StackNavigationProps<Routes, "Onboarding">) => {
   const { scrollHandler, x } = useScrollHandler();
   const slides = [
     {
@@ -102,7 +107,7 @@ const Onboarding = () => {
             flex: 1,
             width: width,
             flexDirection: "row",
-            borderTopLeftRadius: BORDER_RADIUS,
+            borderTopLeftRadius: theme.borderRadii.xl,
             backgroundColor: "white",
             overflow: "hidden",
           }}
@@ -116,20 +121,27 @@ const Onboarding = () => {
               },
             ]}
           >
-            {slides.map(({ subTitle, description, id }, i) => (
-              <SubSlide
-                key={id}
-                last={i === slides.length - 1}
-                {...{ subTitle, description }}
-                onPress={() => {
-                  if (scrollRef.current) {
-                    scrollRef.current
-                      .getNode()
-                      .scrollTo({ x: width * (i + 1), animated: true });
-                  }
-                }}
-              />
-            ))}
+            {slides.map(({ subTitle, description, id }, i) => {
+              const last = i === slides.length - 1;
+              return (
+                <SubSlide
+                  key={id}
+                  last={last}
+                  {...{ subTitle, description }}
+                  onPress={() => {
+                    if (last) {
+                      navigation.navigate("Welcome");
+                      return;
+                    }
+                    if (scrollRef.current) {
+                      scrollRef.current
+                        .getNode()
+                        .scrollTo({ x: width * (i + 1), animated: true });
+                    }
+                  }}
+                />
+              );
+            })}
           </Animated.View>
         </View>
       </View>
@@ -144,7 +156,7 @@ const styles = StyleSheet.create({
   },
   slider: {
     height: SLIDE_HEIGHT,
-    borderBottomRightRadius: BORDER_RADIUS,
+    borderBottomRightRadius: theme.borderRadii.xl,
     backgroundColor: "cyan",
   },
   overlay: {
