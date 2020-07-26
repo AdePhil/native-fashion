@@ -6,6 +6,9 @@ const colors = {
   primary: "#2CB9B0",
   default: "rgba(12, 13, 52, 0.05)",
   lightGray: "#F4F0EF",
+  darkGray: "#8a8d90",
+  danger: "#ff0058",
+  transparent: "transparent",
 };
 
 export default colors;

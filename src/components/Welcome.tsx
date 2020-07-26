@@ -4,8 +4,9 @@ import { StyleSheet, Image } from "react-native";
 import { Box, Text } from "../theme";
 
 import Button from "./Button";
+import { StackNavigationProps, Routes } from "./AppRoutes";
 
-const Welcome = () => {
+const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
   return (
     <Box flex={1} backgroundColor="white">
       <Box
@@ -42,7 +43,9 @@ const Welcome = () => {
           <Button
             variant="primary"
             label="Have an account? Login"
-            onPress={() => {}}
+            onPress={() => {
+              navigation.push("Login");
+            }}
           />
           <Button label="Join us it's free" onPress={() => {}} />
           <Button
@@ -55,7 +58,5 @@ const Welcome = () => {
     </Box>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default Welcome;

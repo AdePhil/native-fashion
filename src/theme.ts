@@ -11,6 +11,7 @@ const theme = {
     xl: 40,
   },
   borderRadii: {
+    sx: 2,
     s: 4,
     m: 10,
     l: 25,
@@ -28,7 +29,7 @@ const theme = {
     title1: {
       fontSize: 28,
       lineHeight: 36,
-      fontFamily: "SFProText-SemiBold",
+      fontFamily: "SFProText-Semibold",
       color: "dark",
     },
     title2: {
