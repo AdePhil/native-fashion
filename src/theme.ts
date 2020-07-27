@@ -16,6 +16,7 @@ const theme = {
     m: 10,
     l: 25,
     xl: 75,
+    none: 0,
   },
   breakpoints: {},
   textVariants: {

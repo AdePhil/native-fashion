@@ -31,6 +31,7 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
   const confirmPasswordRef = useRef<typeof TextInput>(null);
   return (
     <Container
+      leftRadius
       footer={
         <Footer
           onPress={() => navigation.navigate("Login")}

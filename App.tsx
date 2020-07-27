@@ -10,6 +10,8 @@ import Welcome from "./src/components/Welcome";
 import LoadAssets from "./src/components/LoadAssets";
 import Login from "./src/components/Login";
 import SignUp from "./src/components/SignUp";
+import ForgotPassword from "./src/components/ForgotPassword";
+import ConfirmPassword from "./src/components/ConfirmPassword";
 
 const fonts = {
   "SFProText-Bold": require("./assets/fonts/SF-Pro-Text-Bold.otf"),
@@ -25,6 +27,14 @@ const AuthenticationNavigator = () => {
       <AuthenticationStack.Screen name="Welcome" component={Welcome} />
       <AuthenticationStack.Screen name="Login" component={Login} />
       <AuthenticationStack.Screen name="SignUp" component={SignUp} />
+      <AuthenticationStack.Screen
+        name="ForgotPassword"
+        component={ForgotPassword}
+      />
+      <AuthenticationStack.Screen
+        name="ConfirmPassword"
+        component={ConfirmPassword}
+      />
     </AuthenticationStack.Navigator>
   );
 };

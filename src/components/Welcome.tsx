@@ -56,7 +56,9 @@ const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
           <Button
             variant="transparent"
             label="Forgot Password"
-            onPress={() => {}}
+            onPress={() => {
+              navigation.push("ForgotPassword");
+            }}
           />
         </Box>
       </Box>

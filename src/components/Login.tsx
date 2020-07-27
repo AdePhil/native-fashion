@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import * as Yup from "yup";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 import { Box, Text } from "../theme";
 
@@ -26,6 +27,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
   const passwordRef = useRef<typeof TextInput>(null);
   return (
     <Container
+      rightRadius
       footer={
         <Footer
           onPress={() => navigation.push("SignUp")}
@@ -78,7 +80,11 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
           >
             <CheckBox label="Remember me" name="remember" />
 
-            <Text color="primary">Forgot Password</Text>
+            <TouchableWithoutFeedback
+              onPress={() => navigation.push("ForgotPassword")}
+            >
+              <Text color="primary">Forgot Password</Text>
+            </TouchableWithoutFeedback>
           </Box>
           <Box justifyContent="center" alignItems="center" marginVertical="xl">
             <SubmitButton variant="primary" label="Log into your account" />
