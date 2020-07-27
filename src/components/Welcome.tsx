@@ -47,7 +47,12 @@ const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
               navigation.push("Login");
             }}
           />
-          <Button label="Join us it's free" onPress={() => {}} />
+          <Button
+            label="Join us it's free"
+            onPress={() => {
+              navigation.push("SignUp");
+            }}
+          />
           <Button
             variant="transparent"
             label="Forgot Password"

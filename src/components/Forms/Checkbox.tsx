@@ -1,20 +1,21 @@
 import React from "react";
 import { Feather as Icon } from "@expo/vector-icons";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { useField } from "formik";
 
 import { Box, Text } from "../../theme";
 
 interface CheckboxProps {
   label: string;
-  checked: boolean;
-  onChange: () => void;
+  name: string;
 }
 
-const Checkbox = ({ label, checked, onChange }: CheckboxProps) => {
+const Checkbox = ({ label, name }: CheckboxProps) => {
+  const [{ value: checked }, , { setValue }] = useField(name);
   const color = checked ? "primary" : "transparent";
   const border = checked ? "primary" : "darkGray";
   return (
-    <TouchableWithoutFeedback onPress={() => onChange()}>
+    <TouchableWithoutFeedback onPress={() => setValue(!checked)}>
       <Box flexDirection="row" alignItems="center">
         <Box
           backgroundColor={color}

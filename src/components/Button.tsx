@@ -3,7 +3,7 @@ import { StyleSheet, Text } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 import useTheme from "@shopify/restyle/dist/hooks/useTheme";
 
-interface ButtonProps {
+export interface ButtonProps {
   label?: string;
   variant?: "default" | "primary" | "transparent";
   onPress: () => void;

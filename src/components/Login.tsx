@@ -1,117 +1,89 @@
-import React from "react";
-import { Formik } from "formik";
+import React, { useRef } from "react";
 import * as Yup from "yup";
 
 import { Box, Text } from "../theme";
 
 import Container from "./Container";
-import SocialLogin from "./SocialLogin";
-import Button from "./Button";
 import TextInput from "./Forms/TextInput";
 import CheckBox from "./Forms/Checkbox";
+import Form from "./Forms/Form";
+import SubmitButton from "./Forms/SubmitButton";
+import Footer from "./Footer";
+import { StackNavigationProps, Routes } from "./AppRoutes";
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
+  email: Yup.string()
+    .email("Invalid email")
+    .min(2, "Too Short!")
+    .required("Required"),
 });
 
-const Footer = () => (
-  <>
-    <SocialLogin />
-    <Box alignItems="center">
-      <Button onPress={() => {}} variant="transparent">
-        <Box flexDirection="row" alignItems="center">
-          <Text color="white" textAlign="center">
-            Don’t have an account?
-          </Text>
-          <Text color="primary" textAlign="center">
-            Sign Up here
-          </Text>
-        </Box>
-      </Button>
-    </Box>
-  </>
-);
-
-const Login = () => {
+const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
+  const passwordRef = useRef<typeof TextInput>(null);
   return (
-    <Container footer={<Footer />}>
+    <Container
+      footer={
+        <Footer
+          onPress={() => navigation.push("SignUp")}
+          text="Don’t have an account?"
+          subText="Sign Up here"
+        />
+      }
+    >
       <Box padding="xl">
         <Text textAlign="center" variant="title1" marginBottom="s">
           Welcome Back
         </Text>
-        <Text variant="body" textAlign="center">
+        <Text textAlign="center" paddingBottom="m" color="body">
           Use your credentials below and login to your account
         </Text>
 
-        <Formik
+        <Form
           initialValues={{ email: "", password: "", remember: false }}
           validationSchema={LoginSchema}
-          onSubmit={(values) => console.log("here", values)}
+          onSubmit={(values: object) => console.log("here", values)}
         >
-          {({
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            setFieldValue,
-            values,
-            errors,
-            touched,
-          }) => (
-            <>
-              <Box marginVertical="m">
-                <TextInput
-                  icon="mail"
-                  placeholder="Enter your email"
-                  onChangeText={handleChange("email")}
-                  onBlur={handleBlur("email")}
-                  error={errors.email}
-                  touched={touched.email}
-                  value={values.email}
-                />
-              </Box>
-              <Box marginVertical="m">
-                <TextInput
-                  icon="lock"
-                  placeholder="Enter your password"
-                  onChangeText={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                  error={errors.password}
-                  touched={touched.password}
-                  value={values.password}
-                  secureTextEntry
-                />
-              </Box>
-              <Box
-                flexDirection="row"
-                alignItems="center"
-                justifyContent="space-between"
-              >
-                <CheckBox
-                  label="Remember me"
-                  checked={values.remember}
-                  onChange={() => setFieldValue("remember", !values.remember)}
-                />
+          <Box marginVertical="m">
+            <TextInput
+              icon="mail"
+              placeholder="Enter your email"
+              name="email"
+              autoCompleteType="email"
+              returnKeyLabel="next"
+              returnKeyType="next"
+              onSubmitEditing={() => passwordRef.current?.focus()}
+            />
+          </Box>
+          <Box marginVertical="m">
+            <TextInput
+              ref={passwordRef}
+              icon="lock"
+              placeholder="Enter your password"
+              name="password"
+              secureTextEntry
+              autoCompleteType="password"
+              returnKeyLabel="go"
+              returnKeyType="go"
+            />
+          </Box>
+          <Box
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            marginVertical="s"
+          >
+            <CheckBox label="Remember me" name="remember" />
 
-                <Text color="primary">Forgot Password</Text>
-              </Box>
-              <Box
-                justifyContent="center"
-                alignItems="center"
-                marginVertical="xl"
-              >
-                <Button
-                  variant="primary"
-                  label="Log into your account"
-                  onPress={handleSubmit}
-                />
-              </Box>
-            </>
-          )}
-        </Formik>
+            <Text color="primary">Forgot Password</Text>
+          </Box>
+          <Box justifyContent="center" alignItems="center" marginVertical="xl">
+            <SubmitButton variant="primary" label="Log into your account" />
+          </Box>
+        </Form>
       </Box>
     </Container>
   );

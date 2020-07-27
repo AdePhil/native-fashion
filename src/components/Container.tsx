@@ -2,8 +2,9 @@ import React, { ReactNode } from "react";
 import { Image, Dimensions, StatusBar } from "react-native";
 import { useTheme } from "@shopify/restyle";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-import { Box, Text } from "../theme";
+import { Box } from "../theme";
 
 const { width } = Dimensions.get("window");
 
@@ -33,7 +34,7 @@ const Container = ({ children, footer }: ContainerProps) => {
         </Box>
       </Box>
       <Box flex={1}>
-        <Box>
+        <Box position="absolute" top={0} right={0}>
           <Image
             source={assets[0]}
             style={{
@@ -43,20 +44,16 @@ const Container = ({ children, footer }: ContainerProps) => {
           />
         </Box>
         <Box
-          position="absolute"
-          top={0}
-          right={0}
-          bottom={0}
-          left={0}
+          flex={1}
           backgroundColor="white"
           borderTopRightRadius="xl"
           borderBottomLeftRadius="xl"
           borderBottomRightRadius="xl"
         >
-          {children}
+          <KeyboardAwareScrollView>{children}</KeyboardAwareScrollView>
         </Box>
       </Box>
-      <Box backgroundColor="dark" paddingTop="xl">
+      <Box backgroundColor="dark" paddingTop="m">
         {footer}
         <Box height={insets.bottom} />
       </Box>
