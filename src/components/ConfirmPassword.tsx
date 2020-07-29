@@ -15,6 +15,7 @@ const ConfirmPassword = ({
 }: StackNavigationProps<Routes, "ConfirmPassword">) => {
   return (
     <Container
+      rightRadius
       footer={
         <Box justifyContent="center" alignItems="center">
           <CloseButton onPress={() => navigation.pop()} />
