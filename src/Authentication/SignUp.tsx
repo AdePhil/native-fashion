@@ -2,15 +2,13 @@ import React, { useRef } from "react";
 import * as Yup from "yup";
 
 import { Box, Text } from "../theme";
+import { StackNavigationProps, Routes } from "../components/AuthRoutes";
 
-import Container from "./Container";
-import Footer from "./Footer";
-import TextInput from "./Forms/TextInput";
-import Form from "./Forms/Form";
-import SubmitButton from "./Forms/SubmitButton";
-import { StackNavigationProps, Routes } from "./AppRoutes";
-
-interface SignUpProps {}
+import Footer from "./components/Footer";
+import TextInput from "./components/Forms/TextInput";
+import Form from "./components/Forms/Form";
+import SubmitButton from "./components/Forms/SubmitButton";
+import Container from "./components/Container";
 
 const SignUpSchema = Yup.object().shape({
   password: Yup.string()
@@ -32,6 +30,7 @@ const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
   return (
     <Container
       leftRadius
+      pattern={1}
       footer={
         <Footer
           onPress={() => navigation.navigate("Login")}

@@ -1,4 +1,4 @@
-import React, { forwardRef, RefObject, MutableRefObject } from "react";
+import React, { forwardRef, MutableRefObject } from "react";
 import {
   StyleSheet,
   TextInput as Input,
@@ -8,8 +8,8 @@ import { Feather as Icon } from "@expo/vector-icons";
 import useTheme from "@shopify/restyle/dist/hooks/useTheme";
 import { useField } from "formik";
 
-import { Box } from "../../theme";
-import colors from "../../colors";
+import { Box } from "../../../theme";
+import colors from "../../../colors";
 
 interface TextInputProps extends InputProps {
   icon: string;

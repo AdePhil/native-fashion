@@ -3,14 +3,14 @@ import * as Yup from "yup";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 import { Box, Text } from "../theme";
+import { StackNavigationProps, Routes } from "../components/AuthRoutes";
 
-import Container from "./Container";
-import TextInput from "./Forms/TextInput";
-import CheckBox from "./Forms/Checkbox";
-import Form from "./Forms/Form";
-import SubmitButton from "./Forms/SubmitButton";
-import Footer from "./Footer";
-import { StackNavigationProps, Routes } from "./AppRoutes";
+import Footer from "./components/Footer";
+import TextInput from "./components/Forms/TextInput";
+import CheckBox from "./components/Forms/Checkbox";
+import Form from "./components/Forms/Form";
+import SubmitButton from "./components/Forms/SubmitButton";
+import Container from "./components/Container";
 
 const LoginSchema = Yup.object().shape({
   password: Yup.string()
@@ -27,6 +27,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
   const passwordRef = useRef<typeof TextInput>(null);
   return (
     <Container
+      pattern={0}
       rightRadius
       footer={
         <Footer

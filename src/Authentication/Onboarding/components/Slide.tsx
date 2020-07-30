@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Dimensions, Image } from "react-native";
 
-import { Text } from "../theme";
+import { Text } from "../../../theme";
 
 const { width, height } = Dimensions.get("window");
 interface SlideProps {

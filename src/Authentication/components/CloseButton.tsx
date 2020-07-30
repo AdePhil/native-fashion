@@ -2,7 +2,7 @@ import React from "react";
 import { Feather as Icon } from "@expo/vector-icons";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-import { Box, Text } from "../theme";
+import { Box, Text } from "../../theme";
 interface CloseButtonProps {
   onPress?: () => void;
 }

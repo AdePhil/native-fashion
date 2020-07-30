@@ -1,10 +1,10 @@
 import React from "react";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-import { Box, Text } from "../theme";
+import { Box, Text } from "../../theme";
+import Button from "../../components/Button";
 
 import SocialLogin from "./SocialLogin";
-import Button from "./Button";
 
 interface FooterProps {
   onPress: () => void;

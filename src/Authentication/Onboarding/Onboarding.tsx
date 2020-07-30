@@ -5,12 +5,12 @@ import Animated, { multiply, divide } from "react-native-reanimated";
 
 const { width } = Dimensions.get("window");
 
-import theme from "../theme";
+import theme from "../../theme";
+import { StackNavigationProps, Routes } from "../../components/AuthRoutes";
 
-import Slide, { SLIDE_HEIGHT } from "./Slide";
-import SubSlide from "./SubSlide";
-import Dot from "./Dot";
-import { StackNavigationProps, Routes } from "./AppRoutes";
+import Dot from "./components/Dot";
+import SubSlide from "./components/SubSlide";
+import Slide, { SLIDE_HEIGHT } from "./components/Slide";
 // export const BORDER_RADIUS = 75;
 
 const Onboarding = ({

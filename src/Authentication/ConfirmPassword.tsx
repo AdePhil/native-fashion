@@ -3,10 +3,10 @@ import { Feather as Icon } from "@expo/vector-icons";
 
 import { Box, Text } from "../theme";
 import colors from "../colors";
+import { StackNavigationProps, Routes } from "../components/AuthRoutes";
 
-import Container from "./Container";
-import CloseButton from "./CloseButton";
-import { StackNavigationProps, Routes } from "./AppRoutes";
+import CloseButton from "./components/CloseButton";
+import Container from "./components/Container";
 
 const SIZE = 80;
 
@@ -15,6 +15,7 @@ const ConfirmPassword = ({
 }: StackNavigationProps<Routes, "ConfirmPassword">) => {
   return (
     <Container
+      pattern={3}
       rightRadius
       footer={
         <Box justifyContent="center" alignItems="center">

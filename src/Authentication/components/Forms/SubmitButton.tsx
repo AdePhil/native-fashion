@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormikContext } from "formik";
 
-import Button, { ButtonProps } from "../Button";
+import Button, { ButtonProps } from "../../../components/Button";
 
 interface SubmitButtonProps extends Omit<ButtonProps, "onPress"> {
   onPress?: () => void;

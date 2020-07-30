@@ -1,9 +1,8 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import { Text } from "../theme";
-
-import Button from "./Button";
+import { Text } from "../../../theme";
+import Button from "../../../components/Button";
 
 interface SubSlideProps {
   subTitle: string;

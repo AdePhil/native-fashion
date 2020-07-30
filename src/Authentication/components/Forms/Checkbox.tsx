@@ -3,7 +3,7 @@ import { Feather as Icon } from "@expo/vector-icons";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { useField } from "formik";
 
-import { Box, Text } from "../../theme";
+import { Box, Text } from "../../../theme";
 
 interface CheckboxProps {
   label: string;

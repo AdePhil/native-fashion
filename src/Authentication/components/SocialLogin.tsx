@@ -1,10 +1,7 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
 import Svg, { G, Rect, Path } from "react-native-svg";
 
-import { Box } from "../theme";
-
-interface SocialLoginProps {}
+import { Box } from "../../theme";
 
 const Facebook = () => (
   <Svg width={44} height={44} viewBox="0 0 44 44">
@@ -70,9 +67,5 @@ const SocialLogin = () => {
     </Box>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {},
-});
 
 export default SocialLogin;

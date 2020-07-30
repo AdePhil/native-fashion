@@ -1,10 +1,9 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { Image } from "react-native";
 
-import { Box, Text } from "../theme";
-
-import Button from "./Button";
-import { StackNavigationProps, Routes } from "./AppRoutes";
+import { Box, Text } from "../../theme";
+import Button from "../../components/Button";
+import { StackNavigationProps, Routes } from "../../components/AuthRoutes";
 
 const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
   return (

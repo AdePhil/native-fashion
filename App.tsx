@@ -3,15 +3,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { ThemeProvider } from "@shopify/restyle";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { Routes } from "./src/components/AppRoutes";
+import { Routes } from "./src/components/AuthRoutes";
 import theme from "./src/theme";
-import Onboarding from "./src/components/Onboarding";
-import Welcome from "./src/components/Welcome";
+import Onboarding from "./src/Authentication/Onboarding/Onboarding";
+import Welcome from "./src/Authentication/Welcome/Welcome";
 import LoadAssets from "./src/components/LoadAssets";
-import Login from "./src/components/Login";
-import SignUp from "./src/components/SignUp";
-import ForgotPassword from "./src/components/ForgotPassword";
-import ConfirmPassword from "./src/components/ConfirmPassword";
+import Login from "./src/Authentication/Login";
+import SignUp from "./src/Authentication/SignUp";
+import ForgotPassword from "./src/Authentication/ForgotPassword";
+import ConfirmPassword from "./src/Authentication/ConfirmPassword";
 
 const fonts = {
   "SFProText-Bold": require("./assets/fonts/SF-Pro-Text-Bold.otf"),
