@@ -10,6 +10,11 @@ const colors = {
   danger: "#ff0058",
   transparent: "transparent",
   lightGreen: "#2CB9B01A",
+  orange: "#FE5E33",
+  yellow: "#FFC641",
+  pink: "#FF87A2",
+  purple: "#442CB9",
+  black: "#0C0D34",
 };
 
 export default colors;

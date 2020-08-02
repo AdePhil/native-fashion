@@ -6,16 +6,14 @@ import Animated, { multiply, divide } from "react-native-reanimated";
 const { width } = Dimensions.get("window");
 
 import theme from "../../theme";
-import { StackNavigationProps, Routes } from "../../components/AuthRoutes";
+import { AuthNavigationProps } from "../../components/Navigation";
 
 import Dot from "./components/Dot";
 import SubSlide from "./components/SubSlide";
 import Slide, { SLIDE_HEIGHT } from "./components/Slide";
 // export const BORDER_RADIUS = 75;
 
-const Onboarding = ({
-  navigation,
-}: StackNavigationProps<Routes, "Onboarding">) => {
+const Onboarding = ({ navigation }: AuthNavigationProps<"Onboarding">) => {
   const { scrollHandler, x } = useScrollHandler();
   const slides = [
     {
@@ -25,7 +23,7 @@ const Onboarding = ({
       subTitle: "Find Your OutFits",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo ",
-      picture: require("../../assets/2.png"),
+      picture: require("../../../assets/2.png"),
     },
     {
       id: 2,
@@ -34,7 +32,7 @@ const Onboarding = ({
       subTitle: "Hear it First, Wear it First",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo",
-      picture: require("../../assets/3.png"),
+      picture: require("../../../assets/3.png"),
     },
     {
       id: 3,
@@ -43,7 +41,7 @@ const Onboarding = ({
       subTitle: "Your style, Your Way",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo",
-      picture: require("../../assets/1.png"),
+      picture: require("../../../assets/1.png"),
     },
     {
       id: 4,
@@ -52,7 +50,7 @@ const Onboarding = ({
       subTitle: "Look Good, Feel Good",
       description:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem minusiure atque consectetur omnis  illo",
-      picture: require("../../assets/4.png"),
+      picture: require("../../../assets/4.png"),
     },
   ];
 

@@ -3,9 +3,9 @@ import { Image } from "react-native";
 
 import { Box, Text } from "../../theme";
 import Button from "../../components/Button";
-import { StackNavigationProps, Routes } from "../../components/AuthRoutes";
+import { AuthNavigationProps } from "../../components/Navigation";
 
-const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
+const Welcome = ({ navigation }: AuthNavigationProps<"Welcome">) => {
   return (
     <Box flex={1} backgroundColor="white">
       <Box
@@ -16,7 +16,7 @@ const Welcome = ({ navigation }: StackNavigationProps<Routes, "Welcome">) => {
         justifyContent="flex-start"
         overflow="hidden"
       >
-        <Image source={require("../../assets/5.png")} />
+        <Image source={require("../../../assets/5.png")} />
       </Box>
       <Box borderTopLeftRadius="xl" flex={1}>
         <Box

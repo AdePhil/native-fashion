@@ -3,15 +3,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { ThemeProvider } from "@shopify/restyle";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { Routes } from "./src/components/AuthRoutes";
+import { AppRoutes } from "./src/components/Navigation";
 import theme from "./src/theme";
-import Onboarding from "./src/Authentication/Onboarding/Onboarding";
-import Welcome from "./src/Authentication/Welcome/Welcome";
 import LoadAssets from "./src/components/LoadAssets";
-import Login from "./src/Authentication/Login";
-import SignUp from "./src/Authentication/SignUp";
-import ForgotPassword from "./src/Authentication/ForgotPassword";
-import ConfirmPassword from "./src/Authentication/ConfirmPassword";
+import AuthenticationNavigator from "./src/Authentication/AuthNAvigator";
+import HomeDrawerNavigator from "./src/Home/HomeNavigator";
 
 const fonts = {
   "SFProText-Bold": require("./assets/fonts/SF-Pro-Text-Bold.otf"),
@@ -19,33 +15,28 @@ const fonts = {
   "SFProText-Regular": require("./assets/fonts/SF-Pro-Text-Regular.otf"),
 };
 
-const AuthenticationStack = createStackNavigator<Routes>();
-const AuthenticationNavigator = () => {
+const AppStack = createStackNavigator<AppRoutes>();
+
+const AppNavigator = () => {
   return (
-    <AuthenticationStack.Navigator headerMode="none" initialRouteName="SignUp">
-      <AuthenticationStack.Screen name="Onboarding" component={Onboarding} />
-      <AuthenticationStack.Screen name="Welcome" component={Welcome} />
-      <AuthenticationStack.Screen name="Login" component={Login} />
-      <AuthenticationStack.Screen name="SignUp" component={SignUp} />
-      <AuthenticationStack.Screen
-        name="ForgotPassword"
-        component={ForgotPassword}
+    <AppStack.Navigator headerMode="none">
+      <AppStack.Screen
+        name="Authentication"
+        component={AuthenticationNavigator}
       />
-      <AuthenticationStack.Screen
-        name="ConfirmPassword"
-        component={ConfirmPassword}
-      />
-    </AuthenticationStack.Navigator>
+      <AppStack.Screen name="Home" component={HomeDrawerNavigator} />
+    </AppStack.Navigator>
   );
 };
+
 export default function App() {
   return (
-    <LoadAssets {...{ fonts }}>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <LoadAssets {...{ fonts }}>
         <SafeAreaProvider>
-          <AuthenticationNavigator />
+          <AppNavigator />
         </SafeAreaProvider>
-      </ThemeProvider>
-    </LoadAssets>
+      </LoadAssets>
+    </ThemeProvider>
   );
 }

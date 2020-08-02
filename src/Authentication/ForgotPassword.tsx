@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 
 import { Box, Text } from "../theme";
-import { StackNavigationProps, Routes } from "../components/AuthRoutes";
+import { AuthNavigationProps } from "../components/Navigation";
 
 import Footer from "./components/Footer";
 import TextInput from "./components/Forms/TextInput";
@@ -19,7 +19,7 @@ const ForgotPasswordSchema = Yup.object().shape({
 
 const ForgotPassword = ({
   navigation,
-}: StackNavigationProps<Routes, "ForgotPassword">) => {
+}: AuthNavigationProps<Routes, "ForgotPassword">) => {
   return (
     <Container
       pattern={2}

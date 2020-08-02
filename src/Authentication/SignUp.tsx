@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import * as Yup from "yup";
 
 import { Box, Text } from "../theme";
-import { StackNavigationProps, Routes } from "../components/AuthRoutes";
+import { AuthNavigationProps } from "../components/Navigation";
 
 import Footer from "./components/Footer";
 import TextInput from "./components/Forms/TextInput";
@@ -24,7 +24,7 @@ const SignUpSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const SignUp = ({ navigation }: StackNavigationProps<Routes, "SignUp">) => {
+const SignUp = ({ navigation }: AuthNavigationProps<"SignUp">) => {
   const passwordRef = useRef<typeof TextInput>(null);
   const confirmPasswordRef = useRef<typeof TextInput>(null);
   return (

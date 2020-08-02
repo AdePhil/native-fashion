@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 import { Box, Text } from "../theme";
-import { StackNavigationProps, Routes } from "../components/AuthRoutes";
+import { AuthNavigationProps } from "../components/Navigation";
 
 import Footer from "./components/Footer";
 import TextInput from "./components/Forms/TextInput";
@@ -23,7 +23,7 @@ const LoginSchema = Yup.object().shape({
     .required("Required"),
 });
 
-const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
+const Login = ({ navigation }: AuthNavigationProps<"Login">) => {
   const passwordRef = useRef<typeof TextInput>(null);
   return (
     <Container
@@ -48,7 +48,10 @@ const Login = ({ navigation }: StackNavigationProps<Routes, "Login">) => {
         <Form
           initialValues={{ email: "", password: "", remember: false }}
           validationSchema={LoginSchema}
-          onSubmit={(values: object) => console.log("here", values)}
+          onSubmit={(values: object) => {
+            console.log("here", values);
+            navigation.navigate("Home");
+          }}
         >
           <Box marginVertical="m">
             <TextInput
